@@ -1,11 +1,33 @@
 {% extends 'base.html' %}
-
 {% block content %}
-  <form method="post" enctype="multipart/form-data" class="container">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Upload</button>
-  </form>
 
-  <p><a href="{% url 'home' %}">Return to home</a></p>
+<script type="text/javascript">
+    var updateLabel = function () {
+
+        var fileName = document.getElementById('customFile').value.toString();
+
+        document.getElementById('idLCustomFile').innerText = fileName.substring(12);
+    }
+
+</script>
+
+<div class=" container jumbotron ">
+    <div class="container">
+        <form action="/upload/" method="post" enctype="multipart/form-data" >
+          {% csrf_token %}
+
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" required id="id_location" name="location" onchange="updateLabel()">
+                <label id="idLCustomFile"class="custom-file-label" for="customFile" name="labelInputFile">Select a torrent file to upload</label>
+            </div>
+
+            <div class=" d-flex justify-content-end mb-1 my-1">
+                    <button class="btn btn-primary" type="submit">Upload</button>
+            </div>
+
+        </form>
+
+        <a href="{% url 'home' %}">Back to home </a>
+    </div>
+</div>
 {% endblock %}

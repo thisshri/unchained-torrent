@@ -1,0 +1,40 @@
+{%extends 'base.html'%}
+{%block content%}
+
+<div class="container d-flex justify-content-center jumbotron jumbotron-fluid">
+    <form class="form-inline" action="search" method="get" >
+        <input class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" type="text" name="q" placeholder="Search For Torrent">
+        <button type="input" class="btn btn-primary  mb-2">Search</button>
+    </form>
+</div>
+
+
+
+<div class="container-fluid">
+        <p>Recent Uploads</p>
+
+<table class="table table-hower">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Added On</th>
+            <th>Link</th>
+            <th>Uploaded By</th>
+        </tr>
+    </thead>
+
+    {% for tFile in tFiles %}
+
+    <tbody>
+        <tr>
+            <td>{{tFile.name}}</td>
+            <td>{{tFile.uploadTime}}</td>
+            <td><a href="media/{{tFile.location}}">Download</a</td>
+            <td>{{tFile.uploader}}</td>
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+</div>
+
+{%endblock content%}

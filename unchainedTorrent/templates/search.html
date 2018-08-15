@@ -1,41 +1,39 @@
 {% extends 'base.html' %}
 {% block content %}
 </br></br>
-<div class="container" align="center" >
-    <form class="navbar-form navbar-right" action="search" method="get" id="navBarSearchForm">
-        <input class="searchfield" type="text" name="q" placeholder="Search For Torrent">
-        <button type="input" class="btn btn-outline-primary">Search</button>
+
+<div class="container d-flex justify-content-center ">
+    <form class="form-inline" action="search" method="get" >
+        <input class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" type="text" name="q" placeholder="Search For Torrent">
+        <button type="input" class="btn btn-primary  mb-2">Search</button>
     </form>
 </div>
 
+        <div class="container-fluid">
+            <h3 >Result</h3>
+            <table class="table table-hower">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Added On</th>
+                        <th>Link</th>
+                        <th>Uploaded By</th>
+                    </tr>
+                </thead>
+                {% for tFile in tFiles %}
+                <tbody>
+                    <tr >
+                        <th scope="row"></th>
+                        <td>{{tFile.name}}</td>
+                        <td>{{tFile.uploadTime}}</td>
+                        <td><a href="/media/{{tFile.location}}">Download</a</td>
+                        <td>{{tFile.uploader}}</td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
 
-
-
-
-    </br>
-        <h3 >Result</h3>
-
-
-    <table class="table table-hover" >
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Added On</th>
-                <th>Link</th>
-                <th>Uploaded By</th>
-            </tr>
-        </thead>
-        {% for tFile in tFiles %}
-        <thead>
-            <tr>
-                <td>{{tFile.name}}</td>
-                <td>{{tFile.uploadTime}}</td>
-                <td><a href="/media/{{tFile.location}}">Download</a</td>
-                <td>{{tFile.uploader}}</td>
-            </tr>
-        </thead>
-        {% endfor %}
-    </table>
 
 
 {% endblock content %}

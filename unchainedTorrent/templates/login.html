@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+{% block content %}
+
+<div class="container-fluid">
+    <form class="form-inline" action="/login/" method="post">
+        {% csrf_token %}
+        <div class="col-lg-6 col-md-9 col-sm-12">
+            <div class="row-1">
+                <div class="d-flex justify-content-end">
+                    <input type="text" class="form-control mb-2 mr-sm-2" name="username" id="username" placeholder="User Name">
+                </div>
+            </div>
+            <div class="row-2">
+                <div class="d-flex justify-content-end">
+                    <input type="password" class="form-control mb-2 mr-sm-2" name="password" id="password" placeholder="Password">
+                </div>
+
+            </div>
+            <div class="row-3">
+                <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary mb-2">Login</button>
+                </div>
+
+            </div>
+        </div>
+
+    </form>
+</div>
+
+{% endblock %}

@@ -1,7 +1,7 @@
 """unchainedTorrent URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/1.10/topics/http/urls/
+https://docs.djangoproject.com/en/1.10/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -22,19 +22,22 @@ from django.contrib import admin
 from tuser import views as userViews
 from files import views as viewsFiles
 
-from django.contrib.auth import views as authViews
-
 #for media
 from django.conf import settings
 from django.conf.urls.static import static
 
+
+
 urlpatterns = [
     url(r'^$', viewsFiles.index, name='home'),
+
+    #url(r'/^$', viewsFiles.index, name='urlHome'),
+
     url(r'^profile/$', userViews.profile, name='profile'),
     #url(r'^(?P<q>[0-9a-zA-Z+-_]+)$', viewsFiles.search, name='home2'),
     url(r'^admin/', admin.site.urls),
-    url(r'^login/$', authViews.login, name='login'),
-    url(r'^logout/$', authViews.logout, {'next_page': '/'}, name='logout'),
+    url(r'^login/$', userViews.myLogin, name='urlLogin'),
+    url(r'^logout/$',userViews.myLogout,  name='urlLogout'),
 
     url(r'^signup/$', userViews.signup, name='signup'),
     url(r'^upload/$', viewsFiles.model_form_upload, name='upload'),
@@ -44,10 +47,6 @@ urlpatterns = [
 #    url(r'^media(?P<q>[0-9a-zA-Z+-_]+)', viewsFiles.search, name='media'),
 #     url(r'^search(?P<q>[a-zA-Z+-_]+)', viewsFiles.search, name='search'),
 #    url(r'torrents/(P<torrentPath>)/', viewsFiles.torrentDownload, name = "torrentDownload"),
-
-
-
-
 ]
 
 if settings.DEBUG:

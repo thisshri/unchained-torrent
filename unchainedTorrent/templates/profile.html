@@ -2,37 +2,31 @@
 
 {% block content %}
 
-</br></br>
-<h2>Hi, {{request.user.username}}!</h2>
-</br>
-<h3>These are the files uploaded by you.</h3>
 
+<div class="container-fluid">
+    <h4>Hi {{request.user.username}}, These are the files uploaded by you.</h4>
+</div>
 
+<div class="container-fluid">
+    <table class="table table-default" >
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Added On</th>
+                <th>Link</th>
+            </tr>
+        </thead>
 
-<table class="table table-hover" >
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Added On</th>
-            <th>Link</th>
-            <th>Uploaded By</th>
-        </tr>
-    </thead>
-    {% for tFile in tFiles %}
-    <thead>
-        <tr>
-            <td>{{tFile.name}}</td>
-            <td>{{tFile.uploadTime}}</td>
-            <td><a href="/media/{{tFile.location}}">Download</a</td>
-            <td>{{tFile.uploader}}</td>
-        </tr>
-    </thead>
-    {% endfor %}
-</table>
+        {% for tFile in tFiles %}
+        <tbody>
+            <tr>
+                <td>{{tFile.name}}</td>
+                <td>{{tFile.uploadTime}}</td>
+                <td><a href="/media/{{tFile.location}}">Download</a</td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
 
-
-
-
-
-
+</div>
 {% endblock content %}
