@@ -18,38 +18,46 @@
 
 
     <body>
+        <div class="container-fluid ">
 
-        <div class="jumbotron jumbotron-fluid p-2">
-            <nav class="navbar navbar-default navbar-fixed-top">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="/" >Unchained Torrent</a>
-                </div>
-                    <ul class="nav nav-pills" role="tablist">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+                <a class="navbar-brand" href="/" >Unchained Torrent</a>
+
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+                <div class="collapse navbar-collapse justify-content-end" id="navb">
+                    <ul class="navbar-nav mr=auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="{% url 'home' %}">Home</a>
+                            <a class="nav-link" href="{% url 'home' %}">Home</a>
                         </li>
                         {% if user.is_authenticated %}
-                            <li class="nav-item" >
-                                <a class="nav-link" href="{% url 'profile' %}"> Profile </a>
-                            </li>
-                            <li class="nav-item">
-                                <a  class="nav-link" href="{% url 'upload' %}"> Upload File </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'urlLogout' %}"> Logout</a>
-                            </li>
+                        <li class="nav-item" >
+                            <a class="nav-link" href="{% url 'profile' %}"> Profile </a>
+                        </li>
+                        <li class="nav-item">
+                            <a  class="nav-link" href="{% url 'upload' %}"> Upload File </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'urlLogout' %}"> Logout</a>
+                        </li>
                         {% else %}
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'urlLogin' %}"> Login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'signup' %}"> SignUp</a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'urlLogin' %}"> Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'signup' %}"> SignUp</a>
+                        </li>
                         {% endif %}
                     </ul>
-            </nav>
+                </div>
+
 
         </div>
+        </nav>
+
         {%block content%}
         {%endblock content%}
 
