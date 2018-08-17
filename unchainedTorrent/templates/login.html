@@ -3,16 +3,16 @@
 {% block title %}Login{% endblock %}
 {% block content %}
 
-<div class="container bg-info "  ; ">
+<div class="container jumbotron py-2 mt-4" style="max-width:540px">
         <form class="form-inline" action="/login/" method="post">
             {% csrf_token %}
 
-            <div class="row bg-primary" >
+            <div class="row" >
                 <div class="col-lg-6">
                     <label for="username">Username: </label>
                 </div>
                 <div class="col-lg-6">
-                    <input type="text" class="form-control mb-2 mr-sm-2" name="username" id="username" placeholder="User Name">
+                    <input type="text" class="form-control mb-2 mr-sm-2" name="username" id="username">
                 </div>
 
 
@@ -21,7 +21,7 @@
                     <label for="password">Password:</label>
                 </div>
                 <div class="col-lg-6">
-                    <input type="password" class="form-control mb-2 mr-sm-2" name="password" id="password" placeholder="Password">
+                    <input type="password" class="form-control mb-2 mr-sm-2" name="password" id="password" >
                 </div>
 
                 <div class="col-12">
@@ -44,5 +44,8 @@
 
         </form>
 </div>
+
+
+
 
 {% endblock %}

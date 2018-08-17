@@ -2,12 +2,13 @@
 
 {% block content %}
 
-
-<div class="container-fluid">
-    <h4>Hi {{request.user.username}}, These are the files uploaded by you.</h4>
+<div class="container my-2 py-2">
+    <div class="alert alert-info" role="alert">
+        <strong>Hi {{request.user.username}}</strong>, These are the files uploaded by you.
+    </div>
 </div>
 
-<div class="container-fluid">
+<div class="container">
     <table class="table table-default" >
         <thead>
             <tr>

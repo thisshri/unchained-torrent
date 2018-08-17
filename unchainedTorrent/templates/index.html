@@ -8,30 +8,35 @@
         <button type="input" class="btn btn-primary  mb-2">Search</button>
     </form>
 </div>
+<div class="container alert alert-info" role="alert">
+<strong>Recent Uploads</strong>
+</div>
 
-        <h4>Recent Uploads</h4>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Added On</th>
+                <th>Link</th>
+                <th>Uploaded By</th>
+            </tr>
+        </thead>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Added On</th>
-            <th>Link</th>
-            <th>Uploaded By</th>
-        </tr>
-    </thead>
 
+        <tbody>
+            {% for tFile in tFiles %}
+            <tr>
+                <td>{{tFile.name}}</td>
+                <td>{{tFile.uploadTime}}</td>
+                <td><a href="media/{{tFile.location}}">Download</a</td>
+                <td>{{tFile.uploader}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
-    <tbody>
-        {% for tFile in tFiles %}
-        <tr>
-            <td>{{tFile.name}}</td>
-            <td>{{tFile.uploadTime}}</td>
-            <td><a href="media/{{tFile.location}}">Download</a</td>
-            <td>{{tFile.uploader}}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+</div>
+
 
 {%endblock content%}
