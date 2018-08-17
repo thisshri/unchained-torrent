@@ -1,19 +1,17 @@
 {%extends 'base.html'%}
 {%block content%}
 
-<div class="container d-flex justify-content-center jumbotron jumbotron-fluid">
+
+<div class="container d-flex justify-content-center jumbotron jumbotron-fluid my-2 py-4">
     <form class="form-inline" action="search" method="get" >
         <input class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" type="text" name="q" placeholder="Search For Torrent">
         <button type="input" class="btn btn-primary  mb-2">Search</button>
     </form>
 </div>
 
+        <h4>Recent Uploads</h4>
 
-
-<div class="container-fluid">
-        <p>Recent Uploads</p>
-
-<table class="table table-hower">
+<table class="table table-striped">
     <thead>
         <tr>
             <th>Name</th>
@@ -23,18 +21,17 @@
         </tr>
     </thead>
 
-    {% for tFile in tFiles %}
 
     <tbody>
+        {% for tFile in tFiles %}
         <tr>
             <td>{{tFile.name}}</td>
             <td>{{tFile.uploadTime}}</td>
             <td><a href="media/{{tFile.location}}">Download</a</td>
             <td>{{tFile.uploader}}</td>
         </tr>
+        {% endfor %}
     </tbody>
-    {% endfor %}
 </table>
-</div>
 
 {%endblock content%}
